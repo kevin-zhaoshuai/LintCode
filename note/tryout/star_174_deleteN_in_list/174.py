@@ -18,29 +18,35 @@ class Solution:
         # O(n) and 遍历一次. 
         # Assume that n less than the length of the list
         # 算法的边界问题应该在一开始就考虑并实现
-        # 只有一个节点
-        if head.next == None:
-            return None
+
         index1 = head
         index2 = head
-        # 删除尾节点
+
         if n == 1:
-            while(index1.next.next != None):
-                index1 = index1.next
-            index1.next = None
-            return head
-        # 遍历到n-1位置，
-        for i in xrange(n):
+            # 只有一个节点
+            if head.next == None:
+                return None
+
+        # 走n-1. 从0...n-2即可
+        for i in xrange(n-1):
             index1 = index1.next
 
         # 遍历直到尾节点
         while (index1.next != None):
             index1 = index1.next
             index2 = index2.next
-        print index2.val
-        # delete 非尾节点,尾节点情况前面已经处理
-        index2.val = index2.next.val
-        index2.next = index2.next.next
-            
-        return head
+        # delete 的是头结点，返回头结点的next
+        if index2 == head:
+            return index2.next
 
+        if index2.next != None:
+            # delete 非尾节点,尾节点情况前面已经处理
+            index2.val = index2.next.val
+            index2.next = index2.next.next
+        else:
+            index3= head.next
+            index4 = head
+            while (index3.next!= None):
+                index3 = index3.next
+                index4 = index4.next
+            index4.next = None
