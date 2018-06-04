@@ -1,25 +1,16 @@
 class merge_sort():
-    def __init__(self, list):
-        self.list = list
-
-    def swap(self, a, b):
-        temp = self.list[b]
-        self.list[b] = self.list[a]
-        self.list[a] = temp
-
-    def merge_sort(self):
-        length = len(self.list)
-        self.merge_exec(0, length - 1, self.list)
-        return self.list
-
-    def merge_exec(self, start, end, list):
-        if start == end:
+    def merge_sort(self, list):
+        if len(list) <= 1:
             return list
-        else:
-            middle = (start + end)/2
-            left = self.merge_exec(start, middle, list)
-            right = self.merge_exec(middle+1, end, list)
-            return self.merge(left, right)
+        middle = len(list)/2
+        #>>> list = [1,2,3,4,5]
+        #>>> print list[:3]
+        #[1, 2, 3]
+        #>>> print list[3:]
+        #[4, 5]
+        left = self.merge_sort(list[:middle])
+        right = self.merge_sort(list[middle:])
+        return self.merge(left, right)
 
     def merge(self, left, right):
         i, j = 0, 0
@@ -33,14 +24,11 @@ class merge_sort():
                 j = j + 1
         list += left[i:]
         list += right[j:]
-        print left
-        print right
-        print list
         return list
 
 if __name__ == '__main__':
     list = [1, 4, 2, 9, 18, 15, 0, 115, 3, 3, 4, 76, 67, 67]
-    merge = merge_sort(list)
-    list_sort = merge.merge_sort()
+    merge = merge_sort()
+    list_sort = merge.merge_sort(list)
     print list_sort
 
