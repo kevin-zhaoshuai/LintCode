@@ -1,4 +1,6 @@
 # Note
+## reference
+[Python Sort](http://python.jobbole.com/86119/)
 ## Insert sort
 It is a little slow to write down the code.
 Because I don't divide the system into several module and then write code.
