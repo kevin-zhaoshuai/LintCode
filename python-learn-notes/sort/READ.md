@@ -1,6 +1,7 @@
 # Note
 ## reference
 [Python Sort](http://python.jobbole.com/86119/)
+[Python sort speed](https://www.cnblogs.com/woider/p/6835466.html)
 ## Insert sort
 It is a little slow to write down the code.
 Because I don't divide the system into several module and then write code.
